@@ -1,0 +1,79 @@
+---
+const videos = [
+  { title: 'So läuft ein Erstgespräch ab', link: 'https://www.instagram.com/reiterimmobilien/' },
+  { title: 'Homestaging in der Praxis', link: 'https://www.instagram.com/reiterimmobilien/' },
+];
+---
+<section class="instagram section-padding" style="background: var(--grey);">
+  <div class="container">
+    <p class="section-label">Lernen Sie uns kennen</p>
+    <h2 class="section-headline">Verena Reiter auf Instagram</h2>
+    <p class="section-subtext">Schauen Sie sich an, wie wir arbeiten. Persönlich, nahbar und immer für Sie da.</p>
+    <div class="insta-grid">
+      {videos.map((video) => (
+        <a href={video.link} target="_blank" rel="noopener noreferrer" class="insta-card">
+          <div class="insta-placeholder">Video<br/>{video.title}</div>
+          <div class="insta-overlay">
+            <img src="/images/play-button.svg" alt="" width="60" height="60" class="insta-play" />
+          </div>
+          <div class="insta-title-bar">
+            <span>{video.title}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .insta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    max-width: 560px;
+  }
+  .insta-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 9/16;
+    display: block;
+  }
+  .insta-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--accent-pri);
+    color: var(--accent-sec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  .insta-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(42,39,36,0.2);
+    transition: background 0.2s;
+  }
+  .insta-card:hover .insta-overlay {
+    background: rgba(42,39,36,0.4);
+  }
+  .insta-title-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1rem 1rem;
+    background: linear-gradient(transparent, rgba(42,39,36,0.8));
+    color: var(--light);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  @media (max-width: 767px) {
+    .insta-grid { max-width: 100%; }
+  }
+</style>
