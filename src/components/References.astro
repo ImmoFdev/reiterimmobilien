@@ -12,7 +12,9 @@ const references = [
     <div class="ref-grid">
       {references.map((ref) => (
         <div class="ref-card">
-          <div class="ref-placeholder">Bild<br/>{ref.title}</div>
+          <div class="ref-placeholder">
+            <span class="placeholder-label">{ref.title}</span>
+          </div>
           <div class="ref-info">
             <h3 class="ref-title">{ref.title}</h3>
             <p class="ref-detail">{ref.info}</p>
@@ -26,26 +28,36 @@ const references = [
 <style>
   .ref-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
-  .ref-card { overflow: hidden; }
+  .ref-card {
+    border: 1px solid var(--accent-pri);
+    overflow: hidden;
+  }
   .ref-placeholder {
     width: 100%;
     aspect-ratio: 3/2;
-    background: var(--accent-pri);
-    color: var(--accent-sec);
+    border-bottom: 2px dashed var(--accent-pri);
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.85rem;
+    padding: 1rem;
   }
-  .ref-info { padding: 1.25rem 0 0; }
+  .placeholder-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-sec);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .ref-info { padding: 1rem 1rem 0.5rem; }
   .ref-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
   .ref-detail { font-size: 0.85rem; font-weight: 400; color: var(--accent-sec); }
-  @media (max-width: 767px) {
-    .ref-grid { grid-template-columns: 1fr; }
+  @media (min-width: 768px) {
+    .ref-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
