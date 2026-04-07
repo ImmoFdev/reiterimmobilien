@@ -1,0 +1,51 @@
+---
+const references = [
+  { title: 'Einfamilienhaus in Fulda', info: 'Verkauft in 4 Wochen' },
+  { title: 'Eigentumswohnung in Petersberg', info: 'Über Angebotspreis verkauft' },
+  { title: 'Mehrfamilienhaus in Hünfeld', info: 'Verkauft in 6 Wochen' },
+];
+---
+<section class="references section-padding" style="background: var(--light);">
+  <div class="container">
+    <p class="section-label">Erfolge</p>
+    <h2 class="section-headline">Erfolgreich vermittelt</h2>
+    <div class="ref-grid">
+      {references.map((ref) => (
+        <div class="ref-card">
+          <div class="ref-placeholder">Bild<br/>{ref.title}</div>
+          <div class="ref-info">
+            <h3 class="ref-title">{ref.title}</h3>
+            <p class="ref-detail">{ref.info}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .ref-card { overflow: hidden; }
+  .ref-placeholder {
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: var(--accent-pri);
+    color: var(--accent-sec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  .ref-info { padding: 1.25rem 0 0; }
+  .ref-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .ref-detail { font-size: 0.85rem; font-weight: 400; color: var(--accent-sec); }
+  @media (max-width: 767px) {
+    .ref-grid { grid-template-columns: 1fr; }
+  }
+</style>
