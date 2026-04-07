@@ -1,0 +1,57 @@
+---
+const reviews = [
+  { text: 'Frau Reiter hat uns von Anfang bis Ende hervorragend begleitet. Absolut empfehlenswert!', author: 'M. Schmidt', stars: 5 },
+  { text: 'Sehr professionell und persönlich. Die Immobilie war innerhalb weniger Wochen verkauft.', author: 'K. Weber', stars: 5 },
+];
+---
+<section class="social-proof section-padding" style="background: var(--light);">
+  <div class="container">
+    <p class="section-label">Das sagen unsere Kunden</p>
+    <h2 class="section-headline">4,8 von 5 Sternen auf Google</h2>
+    <div class="reviews-grid">
+      {reviews.map((review) => (
+        <blockquote class="review-card">
+          <div class="review-stars">{'★'.repeat(review.stars)}</div>
+          <p class="review-text">&bdquo;{review.text}&ldquo;</p>
+          <cite class="review-author">{review.author}</cite>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .review-card {
+    background: var(--light);
+    padding: 1.75rem;
+    border-left: 3px solid var(--accent-pri);
+  }
+  .review-stars {
+    color: var(--dark);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+  .review-text {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+  .review-author {
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--accent-sec);
+  }
+  @media (max-width: 767px) {
+    .reviews-grid { grid-template-columns: 1fr; }
+  }
+</style>
