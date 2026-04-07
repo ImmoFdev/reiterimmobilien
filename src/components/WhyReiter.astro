@@ -1,0 +1,49 @@
+---
+const usps = [
+  { title: 'Kostenloses Homestaging', text: 'Ihre Immobilie wird optimal präsentiert. Der erste Eindruck entscheidet.' },
+  { title: 'Rundum-Sorglos-Paket', text: 'Von der Bewertung bis zum Notartermin. Sie lehnen sich zurück.' },
+  { title: 'Regionale Expertise', text: '30+ Jahre Erfahrung in Fulda, Petersberg & Hünfeld.' },
+];
+---
+<section class="why section-padding" style="background: var(--grey);">
+  <div class="container">
+    <p class="section-label">Warum Reiter Immobilien?</p>
+    <h2 class="section-headline">Drei Gründe, die den Unterschied machen</h2>
+    <div class="why-grid">
+      {usps.map((usp) => (
+        <div class="why-card">
+          <h3 class="why-card-title">{usp.title}</h3>
+          <p class="why-card-text">{usp.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .why-card {
+    background: var(--light);
+    padding: 2rem;
+    border: 1px solid var(--accent-pri);
+  }
+  .why-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .why-card-text {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--accent-sec);
+    line-height: 1.6;
+  }
+  @media (max-width: 767px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+</style>
