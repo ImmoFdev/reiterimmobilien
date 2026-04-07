@@ -25,18 +25,18 @@ const steps = [
 <style>
   .process-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 2.5rem;
     text-align: center;
   }
   .process-number {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: var(--dark);
     color: var(--light);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -44,8 +44,13 @@ const steps = [
     margin: 0 auto 1rem;
   }
   .process-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
-  .process-text { font-size: 0.9rem; font-weight: 300; color: var(--accent-sec); }
-  @media (max-width: 767px) {
-    .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-text { font-size: 0.9rem; font-weight: 300; color: var(--text-secondary); }
+  @media (min-width: 768px) {
+    .process-grid { grid-template-columns: repeat(4, 1fr); }
+    .process-number {
+      width: 50px;
+      height: 50px;
+      font-size: 1.25rem;
+    }
   }
 </style>
