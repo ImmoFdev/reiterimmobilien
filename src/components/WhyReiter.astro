@@ -1,8 +1,8 @@
 ---
 const usps = [
-  { title: 'Kostenloses Homestaging', text: 'Ihre Immobilie wird optimal präsentiert. Der erste Eindruck entscheidet.' },
-  { title: 'Rundum-Sorglos-Paket', text: 'Von der Bewertung bis zum Notartermin. Sie lehnen sich zurück.' },
-  { title: 'Regionale Expertise', text: '30+ Jahre Erfahrung in Fulda, Petersberg & Hünfeld.' },
+  { num: '01', title: 'Kostenloses Homestaging', text: 'Ihre Immobilie wird optimal präsentiert. Der erste Eindruck entscheidet.' },
+  { num: '02', title: 'Rundum-Sorglos-Paket', text: 'Von der Bewertung bis zum Notartermin. Sie lehnen sich zurück.' },
+  { num: '03', title: 'Regionale Expertise', text: '30+ Jahre Erfahrung in Fulda, Petersberg & Hünfeld.' },
 ];
 ---
 <section class="why section-padding" style="background: var(--grey);">
@@ -12,6 +12,7 @@ const usps = [
     <div class="why-grid">
       {usps.map((usp) => (
         <div class="why-card">
+          <span class="why-card-number">{usp.num}</span>
           <h3 class="why-card-title">{usp.title}</h3>
           <p class="why-card-text">{usp.text}</p>
         </div>
@@ -23,19 +24,33 @@ const usps = [
 <style>
   .why-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
   .why-card {
+    position: relative;
+    overflow: hidden;
     background: var(--light);
     padding: 2rem;
-    border: 1px solid var(--accent-pri);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+  .why-card-number {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-pri);
+    opacity: 0.5;
+    line-height: 1;
+    user-select: none;
   }
   .why-card-title {
     font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+    padding-right: 3.5rem;
   }
   .why-card-text {
     font-size: 0.95rem;
@@ -43,7 +58,7 @@ const usps = [
     color: var(--accent-sec);
     line-height: 1.6;
   }
-  @media (max-width: 767px) {
-    .why-grid { grid-template-columns: 1fr; }
+  @media (min-width: 768px) {
+    .why-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
