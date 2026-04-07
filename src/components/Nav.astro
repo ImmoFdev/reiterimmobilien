@@ -1,0 +1,120 @@
+---
+// src/components/Nav.astro
+---
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-text">REITER IMMOBILIEN</span>
+    </a>
+    <div class="nav-right">
+      <a href="tel:+4966140080" class="nav-phone">0661 / 400 80</a>
+      <a href="#formular" class="nav-cta">Kontakt aufnehmen</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--dark);
+  }
+  .nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    height: 70px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .nav-logo-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--light);
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .nav-phone {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--accent-pri);
+  }
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--light);
+    border-radius: 30px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--light);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover {
+    background: var(--light);
+    color: var(--dark);
+  }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--light);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  @media (max-width: 767px) {
+    .nav-right {
+      display: none;
+    }
+    .nav-right--open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: var(--dark);
+      padding: 1.5rem;
+      gap: 1rem;
+      border-top: 1px solid rgba(250,250,250,0.1);
+    }
+    .nav-hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navRight = document.querySelector('.nav-right');
+
+  hamburger?.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!expanded));
+    navRight?.classList.toggle('nav-right--open');
+  });
+</script>
