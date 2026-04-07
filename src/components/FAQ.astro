@@ -1,0 +1,65 @@
+---
+const faqs = [
+  {
+    question: 'Was kostet das Erstgespräch?',
+    answer: 'Das Erstgespräch ist für Sie völlig kostenlos und unverbindlich. Wir nehmen uns Zeit, Ihre Situation zu verstehen und beraten Sie ehrlich.',
+  },
+  {
+    question: 'Ist das Homestaging wirklich kostenlos?',
+    answer: 'Ja. Wenn Sie uns mit dem Verkauf beauftragen, übernehmen wir die Kosten für das Homestaging komplett. Es ist unser Beitrag für den bestmöglichen Verkaufspreis.',
+  },
+  {
+    question: 'Wie läuft die Immobilienbewertung ab?',
+    answer: 'Wir besichtigen Ihre Immobilie, analysieren den aktuellen Markt in Ihrer Region und erstellen eine fundierte Wertermittlung. Das Ergebnis besprechen wir persönlich mit Ihnen.',
+  },
+  {
+    question: 'Welche Region decken Sie ab?',
+    answer: 'Unser Schwerpunkt liegt in Fulda, Petersberg, Hünfeld und Umgebung. Wir kennen den regionalen Markt seit über 30 Jahren.',
+  },
+];
+---
+<section class="faq section-padding" style="background: var(--light);">
+  <div class="container">
+    <p class="section-label">Häufige Fragen</p>
+    <h2 class="section-headline">Wir beantworten Ihre Fragen</h2>
+    <div class="faq-list">
+      {faqs.map((faq) => (
+        <details class="faq-item">
+          <summary class="faq-question">{faq.question}</summary>
+          <p class="faq-answer">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list { max-width: 700px; margin-top: 2.5rem; }
+  .faq-item { border-bottom: 1px solid var(--accent-pri); }
+  .faq-question {
+    padding: 1.25rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-question::after {
+    content: '+';
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--accent-sec);
+    transition: transform 0.2s;
+  }
+  .faq-item[open] .faq-question::after { content: '\2212'; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-answer {
+    padding: 0 0 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--accent-sec);
+    line-height: 1.6;
+  }
+</style>
