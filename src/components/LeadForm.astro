@@ -1,0 +1,336 @@
+---
+// src/components/LeadForm.astro
+---
+<section class="lead-form section-padding" id="formular" style="background: var(--grey);">
+  <div class="container">
+    <p class="section-label">Jetzt starten</p>
+    <h2 class="section-headline">Kostenloses Erstgespräch vereinbaren</h2>
+    <p class="section-subtext" style="margin-bottom: 2.5rem;">In nur 3 kurzen Schritten. Wir melden uns innerhalb von 24h persönlich.</p>
+
+    <div class="form-container">
+      <div class="progress-bar">
+        <div class="progress-step active" data-step="1">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Immobilie</span>
+        </div>
+        <div class="progress-line"><div class="progress-line-fill"></div></div>
+        <div class="progress-step" data-step="2">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Kontakt</span>
+        </div>
+        <div class="progress-line"><div class="progress-line-fill"></div></div>
+        <div class="progress-step" data-step="3">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Fertig</span>
+        </div>
+      </div>
+
+      <form id="lead-form" novalidate>
+        <input type="hidden" name="utm_source" />
+        <input type="hidden" name="utm_medium" />
+        <input type="hidden" name="utm_campaign" />
+        <input type="hidden" name="timestamp" />
+        <input type="hidden" name="page_url" />
+
+        <!-- Step 1 -->
+        <div class="form-step active" data-step="1">
+          <h3 class="form-step-title">Erzählen Sie uns von Ihrer Immobilie</h3>
+          <div class="tile-grid">
+            <label class="tile">
+              <input type="radio" name="immobilienart" value="Ein/Zweifamilienhaus" />
+              <span class="tile-content">
+                <span class="tile-icon">&#127968;</span>
+                <span class="tile-label">Ein/Zweifamilienhaus</span>
+              </span>
+            </label>
+            <label class="tile">
+              <input type="radio" name="immobilienart" value="Eigentumswohnung" />
+              <span class="tile-content">
+                <span class="tile-icon">&#127970;</span>
+                <span class="tile-label">Eigentumswohnung</span>
+              </span>
+            </label>
+            <label class="tile">
+              <input type="radio" name="immobilienart" value="Mehrfamilienhaus" />
+              <span class="tile-content">
+                <span class="tile-icon">&#127960;</span>
+                <span class="tile-label">Mehrfamilienhaus</span>
+              </span>
+            </label>
+            <label class="tile">
+              <input type="radio" name="immobilienart" value="Grundstück" />
+              <span class="tile-content">
+                <span class="tile-icon">&#128208;</span>
+                <span class="tile-label">Grundstück</span>
+              </span>
+            </label>
+          </div>
+          <div class="form-field" style="margin-top: 1.5rem;">
+            <label for="plz">Postleitzahl</label>
+            <input type="text" id="plz" name="plz" placeholder="z.B. 36037" inputmode="numeric" maxlength="5" />
+            <span class="form-error" data-error="plz"></span>
+          </div>
+          <span class="form-error" data-error="immobilienart"></span>
+          <div class="form-actions">
+            <button type="button" class="btn-primary" data-next="2">Weiter &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step" data-step="2">
+          <h3 class="form-step-title">Wie erreichen wir Sie?</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="vorname">Vorname</label>
+              <input type="text" id="vorname" name="vorname" required />
+              <span class="form-error" data-error="vorname"></span>
+            </div>
+            <div class="form-field">
+              <label for="nachname">Nachname</label>
+              <input type="text" id="nachname" name="nachname" required />
+              <span class="form-error" data-error="nachname"></span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" required />
+            <span class="form-error" data-error="telefon"></span>
+          </div>
+          <div class="form-field">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" required />
+            <span class="form-error" data-error="email"></span>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" data-prev="1">&larr; Zurück</button>
+            <button type="button" class="btn-primary" data-next="3">Weiter &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step" data-step="3">
+          <h3 class="form-step-title">Fast geschafft! Möchten Sie uns noch etwas mitteilen?</h3>
+          <div class="form-field">
+            <label for="nachricht">Nachricht (optional)</label>
+            <textarea id="nachricht" name="nachricht" rows="3" placeholder="z.B. bevorzugte Uhrzeit für den Rückruf..."></textarea>
+          </div>
+          <div class="form-field">
+            <label class="checkbox-label">
+              <input type="checkbox" id="datenschutz" name="datenschutz" required />
+              <span>Ich stimme der <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> zu.</span>
+            </label>
+            <span class="form-error" data-error="datenschutz"></span>
+          </div>
+          <p class="form-hint">Ihre Daten werden vertraulich behandelt</p>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" data-prev="2">&larr; Zurück</button>
+            <button type="submit" class="btn-primary">Erstgespräch anfragen &#10003;</button>
+          </div>
+        </div>
+
+        <!-- Thanks -->
+        <div class="form-step form-thanks" data-step="thanks">
+          <div class="thanks-icon">&#10003;</div>
+          <h3 class="form-step-title">Vielen Dank!</h3>
+          <p class="thanks-text">Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .form-container {
+    background: var(--light);
+    padding: 2.5rem;
+    max-width: 640px;
+    border: 1px solid var(--accent-pri);
+  }
+  .progress-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-pri);
+    transition: background 0.3s;
+  }
+  .progress-step.active .progress-dot,
+  .progress-step.done .progress-dot {
+    background: var(--dark);
+  }
+  .progress-label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--accent-pri);
+    transition: color 0.3s;
+  }
+  .progress-step.active .progress-label {
+    font-weight: 500;
+    color: var(--dark);
+  }
+  .progress-step.done .progress-label {
+    color: var(--dark);
+  }
+  .progress-line {
+    flex: 1;
+    height: 3px;
+    background: var(--accent-pri);
+    margin: 0 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .progress-line-fill {
+    height: 100%;
+    background: var(--dark);
+    width: 0;
+    transition: width 0.3s;
+  }
+  .form-step {
+    display: none;
+  }
+  .form-step.active {
+    display: block;
+  }
+  .form-step-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .tile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .tile input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .tile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--accent-pri);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    text-align: center;
+  }
+  .tile input:checked + .tile-content {
+    border-color: var(--dark);
+    background: var(--grey);
+  }
+  .tile-icon { font-size: 1.5rem; }
+  .tile-label { font-size: 0.85rem; font-weight: 500; }
+  .form-field { margin-bottom: 1rem; }
+  .form-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent-sec);
+    margin-bottom: 0.35rem;
+  }
+  .form-field input[type="text"],
+  .form-field input[type="tel"],
+  .form-field input[type="email"],
+  .form-field textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    background: var(--grey);
+    border: 1px solid var(--accent-pri);
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-field input:focus,
+  .form-field textarea:focus {
+    border-color: var(--dark);
+  }
+  .form-field input.error,
+  .form-field textarea.error {
+    border-color: #c0392b;
+  }
+  .form-error {
+    display: block;
+    font-size: 0.75rem;
+    color: #c0392b;
+    margin-top: 0.25rem;
+    min-height: 1rem;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .checkbox-label {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.85rem !important;
+    font-weight: 300 !important;
+    color: var(--dark) !important;
+    cursor: pointer;
+  }
+  .checkbox-label input {
+    margin-top: 0.2rem;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .checkbox-label a {
+    text-decoration: underline;
+    color: var(--accent-sec);
+  }
+  .form-hint {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--accent-sec);
+    margin-bottom: 1.5rem;
+  }
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .form-thanks {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .thanks-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--dark);
+    color: var(--light);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+  .thanks-text {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--accent-sec);
+    margin-top: 0.75rem;
+  }
+  @media (max-width: 767px) {
+    .form-container { padding: 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script src="../scripts/form.ts"></script>
