@@ -13,13 +13,16 @@
   <div class="hero-content">
     <div class="hero-content-inner">
       <p class="hero-subline">Reiter Immobilien &middot; Fulda &amp; Umgebung</p>
-      <h1 class="hero-headline">Ihre Immobilie verdient den besten Verkauf.</h1>
-      <p class="hero-subtext">Durch Homestaging erreichen wir mit Ihrer Immobilie eine schnelle Vermarktung zum besten Preis.</p>
+      <h1 class="hero-headline">Mit uns <em>erfolgreich</em> verkaufen</h1>
+      <p class="hero-subtext">Wir betreuen Ihren Immobilienverkauf in Fulda und Umgebung von A bis Z und erzielen für Sie den besten Preis.</p>
 
       <div class="hero-trust">
         <div class="hero-trust-item">
           <span class="hero-trust-value">4,8 &#9733;</span>
-          <span class="hero-trust-label">Google</span>
+          <span class="hero-trust-label">
+            <img src="/images/google-logo.svg" alt="Google" width="14" height="14" class="google-logo" />
+            Google
+          </span>
         </div>
         <div class="hero-trust-item">
           <span class="hero-trust-value">30+</span>
@@ -31,7 +34,7 @@
         </div>
       </div>
 
-      <a href="#formular" class="btn-primary">Kostenloses Erstgespräch sichern &rarr;</a>
+      <a href="/formular" class="btn-primary">Verkauf besprechen &rarr;</a>
     </div>
   </div>
 </section>
@@ -125,6 +128,13 @@
     margin-bottom: 1rem;
   }
 
+  .hero-headline em {
+    font-family: 'Dancing Script', cursive;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+  }
+
   .hero-subtext {
     font-size: 1.1rem;
     font-weight: 300;
@@ -135,36 +145,42 @@
 
   .hero-trust {
     display: flex;
-    gap: 2rem;
-    padding: 1.25rem 0;
-    border-top: 1px solid var(--accent-pri);
-    border-bottom: 1px solid var(--accent-pri);
+    gap: 0;
     margin-bottom: 2rem;
-  }
-
-  @media (max-width: 767px) {
-    .hero-trust {
-      gap: 0;
-      justify-content: space-between;
-    }
   }
 
   .hero-trust-item {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    align-items: center;
+    gap: 0.25rem;
+    flex: 1;
+    padding: 1rem 0.5rem;
+    border-right: 1px solid var(--accent-pri);
+  }
+
+  .hero-trust-item:last-child {
+    border-right: none;
   }
 
   .hero-trust-value {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--dark);
   }
 
   .hero-trust-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 400;
     color: var(--accent-sec);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .google-logo {
+    flex-shrink: 0;
+    vertical-align: middle;
   }
 
   @media (max-width: 767px) {

@@ -1,20 +1,22 @@
 ---
 const usps = [
-  { num: '01', title: 'Kostenloses Homestaging', text: 'Ihre Immobilie wird optimal präsentiert. Der erste Eindruck entscheidet.' },
-  { num: '02', title: 'Rundum-Sorglos-Paket', text: 'Von der Bewertung bis zum Notartermin. Sie lehnen sich zurück.' },
-  { num: '03', title: 'Regionale Expertise', text: '30+ Jahre Erfahrung in Fulda, Petersberg & Hünfeld.' },
+  { num: '1', title: 'Persönlich statt Portal', text: 'Kein Callcenter, keine Hotline. Verena Reiter ist Ihre direkte Ansprechpartnerin.' },
+  { num: '2', title: 'Kostenloses Homestaging', text: 'Wir inszenieren Ihre Räume so, dass Käufer sofort zugreifen. Kostenlos für Sie.' },
+  { num: '3', title: 'Alles aus einer Hand', text: 'Von der Marktbewertung über die Vermarktung bis zum Notartermin. Sie lehnen sich zurück.' },
 ];
 ---
 <section class="why section-padding" style="background: var(--grey);">
   <div class="container">
     <p class="section-label">Warum Reiter Immobilien?</p>
-    <h2 class="section-headline">Drei Gründe, die den Unterschied machen</h2>
+    <h2 class="section-headline">Was Sie von uns <em>erwarten</em> können</h2>
     <div class="why-grid">
       {usps.map((usp) => (
         <div class="why-card">
-          <span class="why-card-number">{usp.num}</span>
-          <h3 class="why-card-title">{usp.title}</h3>
-          <p class="why-card-text">{usp.text}</p>
+          <div class="why-card-number">{usp.num}</div>
+          <div class="why-card-content">
+            <h3 class="why-card-title">{usp.title}</h3>
+            <p class="why-card-text">{usp.text}</p>
+          </div>
         </div>
       ))}
     </div>
@@ -25,40 +27,61 @@ const usps = [
   .why-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 2.5rem;
   }
   .why-card {
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
     background: var(--light);
-    padding: 2rem;
+    padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   }
   .why-card-number {
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
-    font-size: 3rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--dark);
+    color: var(--light);
+    font-size: 1.1rem;
     font-weight: 700;
-    color: var(--accent-pri);
-    opacity: 0.5;
-    line-height: 1;
-    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .why-card-content {
+    flex: 1;
+    padding-top: 0.15rem;
   }
   .why-card-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
-    padding-right: 3.5rem;
+    margin-bottom: 0.35rem;
   }
   .why-card-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 300;
-    color: var(--accent-sec);
-    line-height: 1.6;
+    color: var(--text-secondary);
+    line-height: 1.5;
   }
   @media (min-width: 768px) {
     .why-grid { grid-template-columns: repeat(3, 1fr); }
+    .why-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      gap: 1rem;
+    }
+    .why-card-number {
+      width: 50px;
+      height: 50px;
+      font-size: 1.25rem;
+    }
+    .why-card-content {
+      padding-top: 0;
+    }
   }
 </style>
