@@ -1,7 +1,13 @@
 const form = document.getElementById('lead-form') as HTMLFormElement;
 if (!form) throw new Error('Form not found');
 
-const WEBHOOK_URL = 'https://DEINE-N8N-INSTANCE.app/webhook/reiter-lp';
+// Same-origin Endpoint: Cloudflare Pages Function proxyt zum n8n-Webhook
+// und merged die Client-IP serverseitig in den Payload.
+const WEBHOOK_URL = '/api/lead-submit';
+
+// Muss 1:1 zur Checkbox-Beschriftung in LeadForm.astro passen (DSGVO-Audit-Trail).
+const CONSENT_TEXT =
+  'Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an datenschutz@reiter-immobilien.net).';
 
 // UTM Hidden Fields
 function fillHiddenFields() {
@@ -84,6 +90,11 @@ function validateStep(step: number): boolean {
 
   if (step === 2) {
     let valid = true;
+    const anrede = form.querySelector('input[name="anrede"]:checked') as HTMLInputElement;
+    if (!anrede) {
+      showError('anrede', 'Bitte wählen Sie eine Anrede.');
+      valid = false;
+    }
     const fields = ['vorname', 'nachname', 'telefon', 'email'] as const;
     for (const name of fields) {
       const input = form.querySelector(`#${name}`) as HTMLInputElement;
@@ -103,12 +114,18 @@ function validateStep(step: number): boolean {
   }
 
   if (step === 3) {
-    const checkbox = form.querySelector('#datenschutz') as HTMLInputElement;
-    if (!checkbox.checked) {
+    let valid = true;
+    const datenschutz = form.querySelector('#datenschutz') as HTMLInputElement;
+    if (!datenschutz.checked) {
       showError('datenschutz', 'Bitte stimmen Sie der Datenschutzerklärung zu.');
-      return false;
+      valid = false;
     }
-    return true;
+    const consent = form.querySelector('#whatsapp_consent') as HTMLInputElement;
+    if (!consent.checked) {
+      showError('whatsapp_consent', 'Bitte bestätigen Sie die WhatsApp-Einwilligung.');
+      valid = false;
+    }
+    return valid;
   }
 
   return true;
@@ -124,6 +141,23 @@ function clearErrors() {
   form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
 }
 
+// WhatsApp-Consent: Timestamp setzen + Submit-Button enable/disable
+const consentCheckbox = form.querySelector('#whatsapp_consent') as HTMLInputElement;
+const submitBtn = form.querySelector('#lead-submit-btn') as HTMLButtonElement;
+const consentTimestampField = form.querySelector('input[name="consent_timestamp"]') as HTMLInputElement;
+
+if (consentCheckbox && submitBtn) {
+  consentCheckbox.addEventListener('change', () => {
+    if (consentCheckbox.checked) {
+      consentTimestampField.value = new Date().toISOString();
+      submitBtn.disabled = false;
+    } else {
+      consentTimestampField.value = '';
+      submitBtn.disabled = true;
+    }
+  });
+}
+
 // Submit
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -132,22 +166,33 @@ form.addEventListener('submit', async (e) => {
   const tsInput = form.querySelector('input[name="timestamp"]') as HTMLInputElement;
   if (tsInput) tsInput.value = new Date().toISOString();
 
+  // FormData einsammeln. `datenschutz` ist nur clientseitige Validierung
+  // und wird NICHT mitgeschickt. `whatsapp_consent` wird von FormData als
+  // "on" geliefert und unten explizit in echten Boolean umgewandelt.
   const formData = new FormData(form);
-  const data: Record<string, string> = {};
+  const data: Record<string, unknown> = {};
   formData.forEach((value, key) => {
-    if (key !== 'datenschutz') data[key] = value.toString();
+    if (key === 'datenschutz') return;
+    if (key === 'whatsapp_consent') return; // wird separat als Boolean gesetzt
+    data[key] = value.toString();
   });
 
-  const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+  data.whatsapp_consent = consentCheckbox?.checked === true;
+  data.consent_text = CONSENT_TEXT;
+
   submitBtn.disabled = true;
   submitBtn.textContent = 'Wird gesendet...';
 
   try {
-    await fetch(WEBHOOK_URL, {
+    const res = await fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
+
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
 
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'Lead');

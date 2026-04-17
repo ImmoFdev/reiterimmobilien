@@ -26,6 +26,11 @@
       </div>
 
       <form id="lead-form" novalidate>
+        <!-- Security / Tracking Hidden Fields -->
+        <input type="hidden" name="token" value="ri-eigent-8f3k2m" />
+        <input type="hidden" name="website" value="" autocomplete="off" tabindex="-1" style="display:none" />
+        <input type="hidden" name="consent_timestamp" value="" />
+        <input type="hidden" name="consent_ip" value="" />
         <input type="hidden" name="utm_source" />
         <input type="hidden" name="utm_medium" />
         <input type="hidden" name="utm_campaign" />
@@ -79,6 +84,20 @@
         <!-- Step 2 -->
         <div class="form-step" data-step="2">
           <h3 class="form-step-title">Wie erreichen wir Sie?</h3>
+          <div class="form-field">
+            <label>Anrede</label>
+            <div class="anrede-row">
+              <label class="anrede-tile">
+                <input type="radio" name="anrede" value="Herr" />
+                <span class="anrede-label">Herr</span>
+              </label>
+              <label class="anrede-tile">
+                <input type="radio" name="anrede" value="Frau" />
+                <span class="anrede-label">Frau</span>
+              </label>
+            </div>
+            <span class="form-error" data-error="anrede"></span>
+          </div>
           <div class="form-row">
             <div class="form-field">
               <label for="vorname">Vorname</label>
@@ -121,10 +140,17 @@
             </label>
             <span class="form-error" data-error="datenschutz"></span>
           </div>
+          <div class="form-field">
+            <label class="checkbox-label">
+              <input type="checkbox" id="whatsapp_consent" name="whatsapp_consent" required />
+              <span>Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an datenschutz@reiter-immobilien.net).</span>
+            </label>
+            <span class="form-error" data-error="whatsapp_consent"></span>
+          </div>
           <p class="form-hint">Ihre Daten werden vertraulich behandelt</p>
           <div class="form-actions">
             <button type="button" class="btn-secondary" data-prev="2">&larr; Zurück</button>
-            <button type="submit" class="btn-primary">Erstgespräch anfragen &#10003;</button>
+            <button type="submit" class="btn-primary" id="lead-submit-btn" disabled>Erstgespräch anfragen &#10003;</button>
           </div>
         </div>
 
@@ -132,7 +158,7 @@
         <div class="form-step form-thanks" data-step="thanks">
           <div class="thanks-icon">&#10003;</div>
           <h3 class="form-step-title">Vielen Dank!</h3>
-          <p class="thanks-text">Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.</p>
+          <p class="thanks-text">Danke! Wir haben Ihre Anfrage erhalten. In wenigen Minuten schreibt Ihnen der digitale Assistent von Frau Reiter per WhatsApp, um ein kurzes Telefonat zu koordinieren.</p>
         </div>
       </form>
     </div>
@@ -233,6 +259,35 @@
   }
   .tile-icon { font-size: 1.5rem; }
   .tile-label { font-size: 0.85rem; font-weight: 500; }
+  .anrede-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .anrede-tile {
+    position: relative;
+    cursor: pointer;
+  }
+  .anrede-tile input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .anrede-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--accent-pri);
+    transition: border-color 0.2s, background 0.2s;
+    text-align: center;
+  }
+  .anrede-tile input:checked + .anrede-label {
+    border-color: var(--dark);
+    background: var(--grey);
+  }
   .form-field { margin-bottom: 1rem; }
   .form-field label {
     display: block;
@@ -305,6 +360,12 @@
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
+  }
+  .form-actions .btn-primary[disabled] {
+    background: var(--accent-pri);
+    color: var(--taupe, #a99d8f);
+    cursor: not-allowed;
+    opacity: 0.7;
   }
   .form-thanks {
     text-align: center;

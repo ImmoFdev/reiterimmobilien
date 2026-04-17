@@ -1,0 +1,514 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Datenschutzerklärung — Reiter Immobilien">
+  <Nav />
+  <main>
+    <article class="legal-page">
+      <div class="legal-container">
+        <header class="legal-header">
+          <h1>Datenschutzerklärung</h1>
+          <p class="legal-meta">Stand: 17. April 2026</p>
+        </header>
+
+        <nav class="legal-toc" aria-label="Inhaltsverzeichnis">
+          <h2 class="toc-title">Inhalt</h2>
+          <ol>
+            <li><a href="#einleitung">Einleitung</a></li>
+            <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+            <li><a href="#allgemeines">Allgemeines zu personenbezogenen Daten</a></li>
+            <li><a href="#rechte">Ihre Rechte als Betroffener</a></li>
+            <li><a href="#aufsichtsbehoerde">Zuständige Aufsichtsbehörde</a></li>
+            <li><a href="#rechtsgrundlagen">Rechtsgrundlagen im Überblick</a></li>
+            <li><a href="#hosting">Hosting über Cloudflare Pages</a></li>
+            <li><a href="#logfiles">Server-Logfiles</a></li>
+            <li><a href="#ssl">SSL-Verschlüsselung</a></li>
+            <li><a href="#formular">Kontaktformular (Verkäufer-Anfrage)</a></li>
+            <li><a href="#auftragsverarbeiter">Auftragsverarbeiter bei der Formular-Verarbeitung</a></li>
+            <li><a href="#whatsapp">WhatsApp-Kontaktaufnahme durch KI-gestützten Sales-Agenten</a></li>
+            <li><a href="#meta-pixel">Meta Pixel (Facebook Pixel)</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="#utm">UTM-Tracking</a></li>
+            <li><a href="#minderjaehrige">Minderjährige</a></li>
+            <li><a href="#automatisierte-entscheidungen">Automatisierte Entscheidungsfindung</a></li>
+            <li><a href="#aenderungen">Änderung der Datenschutzerklärung</a></li>
+          </ol>
+        </nav>
+
+        <section id="einleitung" class="legal-section">
+          <h2>1. Einleitung</h2>
+          <p>Wir freuen uns über Ihr Interesse an Reiter Immobilien. Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. In dieser Datenschutzerklärung informieren wir Sie transparent darüber, welche Daten wir erheben, zu welchem Zweck, auf welcher Rechtsgrundlage und wie lange wir sie speichern. Die Verarbeitung erfolgt ausschliesslich im Rahmen der geltenden datenschutzrechtlichen Bestimmungen, insbesondere der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG).</p>
+        </section>
+
+        <section id="verantwortlicher" class="legal-section">
+          <h2>2. Verantwortlicher</h2>
+          <p>Verantwortlicher im Sinne der DSGVO ist:</p>
+          <p class="legal-address">
+            Reiter Immobilien GmbH<br />
+            Bergstr. 39<br />
+            36100 Petersberg<br />
+            Telefon: 0661-9012870<br />
+            E-Mail: <a href="mailto:info@reiter-immobilien.net">info@reiter-immobilien.net</a>
+          </p>
+          <p>Für Datenschutzanfragen erreichen Sie uns direkt unter: <a href="mailto:datenschutz@reiter-immobilien.net">datenschutz@reiter-immobilien.net</a></p>
+        </section>
+
+        <section id="allgemeines" class="legal-section">
+          <h2>3. Allgemeines zu personenbezogenen Daten</h2>
+          <p>Die Nutzung unserer Webseite ist grundsätzlich ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (z.B. Name, Anschrift, E-Mail-Adresse oder Telefonnummer) erhoben werden, erfolgt dies stets auf freiwilliger Basis. Wir verarbeiten nur solche Daten, die für die jeweilige Verarbeitungssituation erforderlich sind (Grundsatz der Datenminimierung).</p>
+          <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Zur Absicherung der Übertragung auf dieser Webseite setzen wir TLS-Verschlüsselung ein (siehe Abschnitt 9).</p>
+        </section>
+
+        <section id="rechte" class="legal-section">
+          <h2>4. Ihre Rechte als Betroffener</h2>
+          <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu erhalten. Ausserdem stehen Ihnen folgende Rechte zu:</p>
+          <ul>
+            <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO)</li>
+            <li><strong>Recht auf Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+            <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+            <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+            <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+            <li><strong>Widerspruchsrecht</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+            <li><strong>Widerruf einer erteilten Einwilligung</strong> (Art. 7 Abs. 3 DSGVO) mit Wirkung für die Zukunft, jederzeit formlos möglich</li>
+            <li><strong>Beschwerderecht</strong> bei einer Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO)</li>
+          </ul>
+          <p>Für die Ausübung Ihrer Rechte genügt eine formlose Mitteilung an <a href="mailto:datenschutz@reiter-immobilien.net">datenschutz@reiter-immobilien.net</a>.</p>
+        </section>
+
+        <section id="aufsichtsbehoerde" class="legal-section">
+          <h2>5. Zuständige Aufsichtsbehörde</h2>
+          <p>Für uns als in Hessen ansässiges Unternehmen ist folgende Aufsichtsbehörde zuständig:</p>
+          <p class="legal-address">
+            Der Hessische Beauftragte für Datenschutz und Informationsfreiheit<br />
+            Gustav-Stresemann-Ring 1<br />
+            65189 Wiesbaden<br />
+            Website: <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener">datenschutz.hessen.de</a>
+          </p>
+        </section>
+
+        <section id="rechtsgrundlagen" class="legal-section">
+          <h2>6. Rechtsgrundlagen im Überblick</h2>
+          <p>Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person einholen, dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage.</p>
+          <p>Bei der Verarbeitung personenbezogener Daten, die zur Erfüllung eines Vertrages oder zur Durchführung vorvertraglicher Massnahmen erforderlich ist, dient Art. 6 Abs. 1 lit. b DSGVO als Rechtsgrundlage. Dies gilt auch für Verarbeitungsvorgänge, die zur Anbahnung einer Geschäftsbeziehung erforderlich sind.</p>
+          <p>Soweit die Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens oder eines Dritten erforderlich ist und sofern die Interessen, Grundrechte und Grundfreiheiten des Betroffenen das erstgenannte Interesse nicht überwiegen, dient Art. 6 Abs. 1 lit. f DSGVO als Rechtsgrundlage.</p>
+        </section>
+
+        <section id="hosting" class="legal-section">
+          <h2>7. Hosting über Cloudflare Pages</h2>
+          <p>Diese Webseite wird bei Cloudflare gehostet. Anbieter ist:</p>
+          <p class="legal-address">
+            Cloudflare, Inc.<br />
+            101 Townsend Street<br />
+            San Francisco, CA 94107<br />
+            USA<br />
+            Datenschutzerklärung: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a>
+          </p>
+          <p>Cloudflare erhält technisch bedingt die IP-Adresse Ihres Endgerätes, um die Webseite an Sie auszuliefern. Die Übermittlung in die USA erfolgt auf Basis der EU-Standardvertragsklauseln in Verbindung mit dem EU-US Data Privacy Framework. Cloudflare ist nach dem EU-US Data Privacy Framework zertifiziert.</p>
+          <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren, performanten und zuverlässigen Auslieferung unserer Webseite).</p>
+        </section>
+
+        <section id="logfiles" class="legal-section">
+          <h2>8. Server-Logfiles</h2>
+          <p>Beim Aufruf dieser Webseite erhebt unser Hoster (Cloudflare) automatisch Informationen, die Ihr Browser übermittelt. Dies umfasst:</p>
+          <ul>
+            <li>IP-Adresse des zugreifenden Geräts (in gekürzter Form)</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>Referrer-URL (zuvor besuchte Seite)</li>
+            <li>Verwendeter Browser und Browser-Version</li>
+            <li>Verwendetes Betriebssystem</li>
+            <li>Aufgerufene URL bzw. Dateiname</li>
+            <li>HTTP-Statuscode und übertragene Datenmenge</li>
+          </ul>
+          <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Eine Auswertung erfolgt nur bei Bedarf zur Sicherstellung des Betriebs, zur Abwehr von Angriffen und zur Fehleranalyse.</p>
+          <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer stabilen, sicheren Auslieferung und Missbrauchsabwehr).</p>
+        </section>
+
+        <section id="ssl" class="legal-section">
+          <h2>9. SSL-Verschlüsselung</h2>
+          <p>Diese Webseite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Anfragen, die Sie an uns als Seitenbetreiber senden, eine TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von "http://" auf "https://" wechselt und am Schloss-Symbol in Ihrer Browserzeile.</p>
+        </section>
+
+        <section id="formular" class="legal-section">
+          <h2>10. Kontaktformular (Verkäufer-Anfrage)</h2>
+          <p>Auf dieser Webseite bieten wir Ihnen ein Kontaktformular für Verkäufer-Anfragen an. Wenn Sie das Formular absenden, werden die dort eingegebenen Daten zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
+
+          <h3>Erhobene Daten</h3>
+          <ul>
+            <li>Anrede</li>
+            <li>Vor- und Nachname</li>
+            <li>Telefonnummer</li>
+            <li>E-Mail-Adresse</li>
+            <li>Art der Immobilie</li>
+            <li>Postleitzahl des Objekts</li>
+            <li>Optional: Ihre Nachricht an uns</li>
+          </ul>
+
+          <h3>Audit-Trail zur Einwilligung</h3>
+          <p>Zur Erfüllung der Nachweispflicht aus Art. 7 Abs. 1 DSGVO speichern wir zusätzlich:</p>
+          <ul>
+            <li>Zeitpunkt der Einwilligung (<code>consent_timestamp</code>)</li>
+            <li>IP-Adresse zum Zeitpunkt der Einwilligung (<code>consent_ip</code>)</li>
+            <li>Den exakten Wortlaut, dem Sie zugestimmt haben (<code>consent_text</code>)</li>
+          </ul>
+
+          <h3>Zweck</h3>
+          <p>Bearbeitung Ihrer Verkaufsanfrage, Kontaktaufnahme zur Immobilienbewertung und Anbahnung einer Geschäftsbeziehung im Sinne eines Maklervertrages.</p>
+
+          <h3>Rechtsgrundlage</h3>
+          <p>Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Massnahmen auf Ihre Anfrage hin) sowie Art. 6 Abs. 1 lit. a DSGVO (ausdrückliche Einwilligung für die Kontaktaufnahme per WhatsApp und Telefon).</p>
+
+          <h3>Speicherdauer</h3>
+          <p>Ihre Daten werden gespeichert, bis der Beratungsprozess abgeschlossen ist, längstens jedoch drei Jahre nach dem letzten Kontakt, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Bei steuer- oder handelsrechtlich relevanten Unterlagen gelten gesetzliche Aufbewahrungsfristen nach Handelsgesetzbuch und Abgabenordnung von bis zu zehn Jahren.</p>
+
+          <h3>Widerruf und Löschung</h3>
+          <p>Sie können Ihre Einwilligung jederzeit formlos widerrufen und die Löschung Ihrer Daten verlangen. Eine kurze Nachricht an <a href="mailto:datenschutz@reiter-immobilien.net">datenschutz@reiter-immobilien.net</a> genügt. Die Rechtmässigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt hiervon unberührt.</p>
+        </section>
+
+        <section id="auftragsverarbeiter" class="legal-section">
+          <h2>11. Auftragsverarbeiter bei der Formular-Verarbeitung</h2>
+          <p>Zur Verarbeitung der über das Kontaktformular eingehenden Anfragen setzen wir sorgfältig ausgewählte Dienstleister ein. Mit allen Auftragsverarbeitern besteht ein Vertrag zur Auftragsverarbeitung gemäss Art. 28 DSGVO.</p>
+
+          <h3>Max.Marketing (Max Schenk)</h3>
+          <p>Betreibt in unserem Auftrag die Workflow-Automatisierung (n8n) und den KI-gestützten WhatsApp-Sales-Agenten zur Vorqualifizierung eingehender Verkäufer-Anfragen.</p>
+          <ul>
+            <li><strong>Kontakt:</strong> <a href="mailto:info@max-mp.de">info@max-mp.de</a></li>
+            <li><strong>Serverstandort:</strong> Deutschland / EU</li>
+            <li><strong>Zweck:</strong> Empfang der Formulardaten, Automatisierung der Lead-Verarbeitung, Übergabe an das CRM, Versand der automatisierten Erst-Ansprache per WhatsApp</li>
+          </ul>
+
+          <h3>Airtable, Inc.</h3>
+          <p class="legal-address">
+            Airtable, Inc.<br />
+            799 Market Street<br />
+            San Francisco, CA 94103<br />
+            USA<br />
+            Datenschutzerklärung: <a href="https://www.airtable.com/privacy" target="_blank" rel="noopener">airtable.com/privacy</a>
+          </p>
+          <ul>
+            <li><strong>Zweck:</strong> CRM-System zur strukturierten Speicherung und Bearbeitung der Lead-Daten</li>
+            <li><strong>Datenübermittlung:</strong> in die USA auf Basis der EU-Standardvertragsklauseln</li>
+          </ul>
+
+          <h3>Cloudflare, Inc.</h3>
+          <p>Zusätzlich zum Hosting (siehe Abschnitt 7) kommt eine Cloudflare Pages Function als Proxy zwischen Formular und CRM zum Einsatz. Diese reichert den Datensatz mit der IP-Adresse zum Einwilligungszeitpunkt an (Nachweis der Einwilligung). Eine darüber hinausgehende persistente Speicherung der Formulardaten bei Cloudflare findet nicht statt.</p>
+          <ul>
+            <li><strong>Datenschutzerklärung:</strong> <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a></li>
+          </ul>
+        </section>
+
+        <section id="whatsapp" class="legal-section">
+          <h2>12. WhatsApp-Kontaktaufnahme durch KI-gestützten Sales-Agenten</h2>
+          <p>Nach dem Absenden des Formulars und bei erteilter Einwilligung kontaktieren wir Sie kurzfristig per WhatsApp. Die Erst-Ansprache erfolgt über einen KI-gestützten Sales-Agenten, der in unserem Auftrag arbeitet und Ihre Anfrage vorqualifiziert. Die weitere Beratung übernimmt selbstverständlich ein Mitarbeiter von Reiter Immobilien persönlich.</p>
+
+          <p>WhatsApp ist ein Dienst von:</p>
+          <p class="legal-address">
+            WhatsApp Ireland Limited<br />
+            4 Grand Canal Square<br />
+            Grand Canal Harbour<br />
+            Dublin 2, Irland<br />
+            (Teil der Meta Platforms, Inc., USA)<br />
+            Datenschutzerklärung: <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">whatsapp.com/legal/privacy-policy</a>
+          </p>
+
+          <h3>Übertragene Daten</h3>
+          <ul>
+            <li>Ihr Name</li>
+            <li>Ihre Telefonnummer</li>
+            <li>Kontext Ihrer Anfrage (Immobilienart, PLZ, ggf. Ihre Nachricht)</li>
+          </ul>
+          <p>Meta kann technisch bedingt Metadaten (z.B. Zeitpunkt, verwendetes Endgerät) verarbeiten. Einzelheiten dazu entnehmen Sie bitte der WhatsApp-Datenschutzerklärung.</p>
+
+          <h3>Rechtsgrundlage</h3>
+          <p>Art. 6 Abs. 1 lit. a DSGVO (ausdrückliche Einwilligung). Die Einwilligung erteilen Sie über die entsprechende Checkbox im Kontaktformular.</p>
+
+          <h3>Widerruf</h3>
+          <p>Sie können diese Einwilligung jederzeit formlos widerrufen, zum Beispiel durch eine Nachricht direkt im WhatsApp-Chat oder per E-Mail an <a href="mailto:datenschutz@reiter-immobilien.net">datenschutz@reiter-immobilien.net</a>. Nach Widerruf wird die Kommunikation per WhatsApp eingestellt.</p>
+        </section>
+
+        <section id="meta-pixel" class="legal-section">
+          <h2>13. Meta Pixel (Facebook Pixel)</h2>
+          <p>Diese Webseite nutzt das Meta Pixel zur Messung der Werbewirksamkeit unserer Kampagnen auf Facebook und Instagram. Das Pixel wird ausschliesslich geladen, wenn Sie über unser Cookie-Banner zuvor ausdrücklich eingewilligt haben. Ohne Einwilligung oder bei Ablehnung wird kein Pixel-Code ausgeführt.</p>
+
+          <p>Anbieter:</p>
+          <p class="legal-address">
+            Meta Platforms Ireland Limited<br />
+            4 Grand Canal Square<br />
+            Dublin 2, Irland<br />
+            Mutterkonzern: Meta Platforms, Inc. (USA)<br />
+            Datenschutzerklärung: <a href="https://www.facebook.com/privacy/explanation" target="_blank" rel="noopener">facebook.com/privacy/explanation</a>
+          </p>
+
+          <h3>Zweck</h3>
+          <ul>
+            <li>Messung der Werbewirksamkeit unserer Meta-Werbekampagnen</li>
+            <li>Conversion-Tracking (insbesondere Formularabsendung als Lead-Event)</li>
+            <li>Retargeting von Webseiten-Besuchern innerhalb des Meta-Netzwerks</li>
+            <li>Bildung anonymisierter Zielgruppen (Custom und Lookalike Audiences)</li>
+          </ul>
+
+          <h3>Verarbeitete Daten</h3>
+          <ul>
+            <li>Pseudonymisierte Besucher-IDs</li>
+            <li>Interaktionen auf der Webseite (z.B. Seitenaufrufe, Formularabsendung)</li>
+            <li>IP-Adresse, Browser-Informationen, Geräteinformationen</li>
+          </ul>
+
+          <h3>Datenübermittlung in die USA</h3>
+          <p>Meta überträgt Daten in die USA. Rechtsgrundlage der Übermittlung sind die EU-Standardvertragsklauseln in Verbindung mit dem EU-US Data Privacy Framework, unter dem Meta zertifiziert ist.</p>
+
+          <h3>Rechtsgrundlage</h3>
+          <p>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via Cookie-Banner).</p>
+
+          <h3>Widerruf</h3>
+          <p>Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die im Browser gespeicherte Cookie-Entscheidung löschen (LocalStorage-Eintrag <code>reiter_cookie_consent</code>) oder über die Cookie-Einstellungen des Browsers. Nach Widerruf wird das Pixel bei zukünftigen Besuchen nicht mehr geladen.</p>
+        </section>
+
+        <section id="cookies" class="legal-section">
+          <h2>14. Cookies</h2>
+          <p>Unsere Webseite verwendet Cookies und vergleichbare Speichertechniken (insbesondere LocalStorage). Dabei wird zwischen zwei Kategorien unterschieden:</p>
+          <ul>
+            <li><strong>Unbedingt erforderliche Cookies:</strong> für den technischen Betrieb der Webseite zwingend notwendig. Diese werden auch ohne Einwilligung gesetzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</li>
+            <li><strong>Einwilligungspflichtige Cookies:</strong> dienen Analyse-, Marketing- oder Reichweitenzwecken und werden nur nach aktiver Zustimmung über das Cookie-Banner gesetzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</li>
+          </ul>
+
+          <h3>Konkret auf dieser Webseite eingesetzt</h3>
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Typ</th>
+                <th>Zweck</th>
+                <th>Einwilligung erforderlich</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>reiter_cookie_consent</code></td>
+                <td>LocalStorage, 1. Partei</td>
+                <td>Speichert Ihre Cookie-Entscheidung, damit das Banner nicht bei jedem Besuch erneut erscheint.</td>
+                <td>Nein (unbedingt erforderlich)</td>
+              </tr>
+              <tr>
+                <td>Meta Pixel Cookies (<code>_fbp</code> u.a.)</td>
+                <td>3. Partei (Meta)</td>
+                <td>Conversion-Tracking und Retargeting, siehe Abschnitt 13.</td>
+                <td>Ja</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Das Cookie-Banner erscheint beim ersten Besuch. Sie können Ihre Entscheidung jederzeit widerrufen, indem Sie den LocalStorage-Eintrag in Ihrem Browser löschen oder die Webseite in einem Inkognito-Fenster erneut aufrufen.</p>
+        </section>
+
+        <section id="utm" class="legal-section">
+          <h2>15. UTM-Tracking</h2>
+          <p>Wenn Sie unsere Webseite über einen markierten Link aufrufen (z.B. aus einer E-Mail, einer Meta-Anzeige oder über einen QR-Code eines Flyers), können in der URL enthaltene UTM-Parameter ausgelesen werden. Dazu zählen insbesondere <code>utm_source</code>, <code>utm_medium</code> und <code>utm_campaign</code>.</p>
+          <p>Diese Parameter dienen der Kampagnen-Attribution. Wir speichern sie zusammen mit einer eingehenden Formular-Anfrage in unserem CRM, um auswerten zu können, über welchen Kanal eine Anfrage zustande gekommen ist. Eine Weitergabe dieser Informationen an externe Dritte erfolgt nicht.</p>
+          <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Messung der Wirksamkeit unserer Marketingmassnahmen). Ohne Formularabsendung werden die Parameter nicht dauerhaft gespeichert.</p>
+        </section>
+
+        <section id="minderjaehrige" class="legal-section">
+          <h2>16. Minderjährige</h2>
+          <p>Unser Angebot richtet sich ausschliesslich an volljährige Personen. Personen unter 16 Jahren sollten ohne Zustimmung der Erziehungsberechtigten keine personenbezogenen Daten über unsere Webseite an uns übermitteln. Wir erheben wissentlich keine Daten von Minderjährigen und führen keine gezielten Marketingmassnahmen gegenüber Minderjährigen durch.</p>
+        </section>
+
+        <section id="automatisierte-entscheidungen" class="legal-section">
+          <h2>17. Automatisierte Entscheidungsfindung</h2>
+          <p>Eine automatisierte Entscheidungsfindung einschliesslich Profiling im Sinne von Art. 22 DSGVO findet nicht statt. Der KI-gestützte WhatsApp-Sales-Agent dient ausschliesslich der Vorqualifizierung und Terminvereinbarung. Entscheidungen mit rechtlicher Wirkung oder erheblicher Beeinträchtigung (z.B. Abschluss eines Maklervertrages, Bewertung der Immobilie) werden stets durch einen Menschen bei Reiter Immobilien getroffen.</p>
+        </section>
+
+        <section id="aenderungen" class="legal-section">
+          <h2>18. Änderung der Datenschutzerklärung</h2>
+          <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie an geänderte Rechtslagen, geänderte Dienste oder geänderte Datenverarbeitungen anzupassen. Es gilt jeweils die zum Zeitpunkt Ihres Besuchs abrufbare Fassung.</p>
+        </section>
+
+        <!-- TODO Max: Handelsregister-Nummer + Amtsgericht von Verena einholen und ergänzen. Prüfen ob Einrichtung E-Mail datenschutz@reiter-immobilien.net erfolgt ist. -->
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-page {
+    background: var(--light);
+    padding: 6rem 1.25rem 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .legal-page {
+      padding: 7rem 1.5rem 6rem;
+    }
+  }
+
+  .legal-container {
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--dark);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .legal-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--accent-pri);
+  }
+
+  .legal-header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .legal-toc {
+    background: var(--grey);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 3rem;
+    border-left: 3px solid var(--accent-sec);
+  }
+
+  .toc-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-sec);
+    margin-bottom: 1rem;
+  }
+
+  .legal-toc ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .legal-toc li {
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+  }
+
+  .legal-toc a {
+    color: var(--dark);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .legal-toc a:hover {
+    border-bottom-color: var(--dark);
+  }
+
+  .legal-section {
+    margin-bottom: 2.75rem;
+    scroll-margin-top: 100px;
+  }
+
+  .legal-section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .legal-section h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-section p {
+    margin-bottom: 1rem;
+    color: var(--dark);
+  }
+
+  .legal-section ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .legal-section li {
+    margin-bottom: 0.4rem;
+  }
+
+  .legal-section a {
+    color: var(--dark);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-sec);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s;
+  }
+
+  .legal-section a:hover {
+    text-decoration-color: var(--dark);
+  }
+
+  .legal-address {
+    padding: 1rem 1.25rem;
+    background: var(--grey);
+    border-left: 3px solid var(--accent-pri);
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .legal-section code {
+    background: var(--grey);
+    padding: 0.1rem 0.4rem;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    color: var(--dark);
+  }
+
+  .legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .legal-table thead th {
+    text-align: left;
+    background: var(--grey);
+    padding: 0.65rem 0.75rem;
+    font-weight: 500;
+    border-bottom: 2px solid var(--accent-pri);
+    color: var(--dark);
+  }
+
+  .legal-table tbody td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--accent-pri);
+    vertical-align: top;
+  }
+
+  @media (max-width: 640px) {
+    .legal-table {
+      font-size: 0.82rem;
+    }
+
+    .legal-table thead th,
+    .legal-table tbody td {
+      padding: 0.5rem 0.5rem;
+    }
+  }
+
+  .legal-section strong {
+    font-weight: 500;
+    color: var(--dark);
+  }
+</style>
