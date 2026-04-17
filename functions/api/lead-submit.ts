@@ -15,9 +15,7 @@ const N8N_ENDPOINT =
 
 type LeadPayload = Record<string, unknown>;
 
-export const onRequestPost: PagesFunction = async (context) => {
-  const { request } = context;
-
+export const onRequestPost = async ({ request }: { request: Request }) => {
   let payload: LeadPayload;
   try {
     payload = (await request.json()) as LeadPayload;
@@ -64,7 +62,7 @@ export const onRequestPost: PagesFunction = async (context) => {
 };
 
 // Alle anderen Methoden sauber ablehnen (kein GET, PUT, OPTIONS etc.).
-export const onRequest: PagesFunction = async () => {
+export const onRequest = async () => {
   return new Response(
     JSON.stringify({ status: 'error', reason: 'method not allowed' }),
     {
