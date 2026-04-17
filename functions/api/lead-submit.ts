@@ -11,7 +11,7 @@
 //     Damit kann der Client die IP nicht manipulieren (DSGVO-Audit-Trail).
 
 const N8N_ENDPOINT =
-  'https://n8n.max-mp.de/webhook/reiterimmobilien-eigentuemer-import';
+  'https://n8n.max-mp.de/webhook/reiterimmobilien-eigentuemer-lead';
 
 type LeadPayload = Record<string, unknown>;
 
