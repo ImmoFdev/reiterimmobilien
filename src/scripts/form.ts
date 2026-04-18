@@ -198,7 +198,7 @@ form.addEventListener('submit', async (e) => {
       window.fbq('track', 'Lead');
     }
 
-    showStep('thanks');
+    window.location.href = '/danke';
   } catch {
     submitBtn.disabled = false;
     submitBtn.textContent = 'Erstgespräch anfragen \u2713';

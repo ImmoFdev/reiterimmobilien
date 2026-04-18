@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Vielen Dank — Reiter Immobilien">
+  <Nav />
+  <main>
+    <section class="thanks-section section-padding">
+      <div class="container">
+        <div class="thanks-card">
+          <div class="thanks-icon">&#10003;</div>
+          <p class="section-label">Anfrage erhalten</p>
+          <h1 class="thanks-headline">Vielen <em>Dank</em> für Ihr Vertrauen</h1>
+          <p class="thanks-text">
+            Wir haben Ihre Anfrage erhalten. In wenigen Minuten schreibt Ihnen
+            der digitale Assistent von Frau Reiter per WhatsApp, um ein kurzes
+            Telefonat zu koordinieren.
+          </p>
+          <p class="thanks-hint">
+            Bitte prüfen Sie Ihre WhatsApp-Nachrichten auch im Spam- oder
+            Unbekannt-Ordner.
+          </p>
+          <div class="thanks-actions">
+            <a href="/" class="btn-secondary">Zurück zur Startseite</a>
+            <a href="https://www.reiter-immobilien.net" class="btn-primary" target="_blank" rel="noopener">Mehr über uns</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .thanks-section {
+    background: var(--grey);
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+  }
+  .thanks-card {
+    background: var(--light);
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    border: 1px solid var(--accent-pri);
+    text-align: center;
+  }
+  .thanks-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--dark);
+    color: var(--light);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+  .thanks-headline {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .thanks-headline em {
+    font-family: 'Dancing Script', cursive;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+  }
+  .thanks-text {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .thanks-hint {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--accent-sec);
+    margin-bottom: 2rem;
+  }
+  .thanks-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 767px) {
+    .thanks-card { padding: 2rem 1.5rem; }
+    .thanks-actions { flex-direction: column; }
+    .thanks-actions .btn-primary,
+    .thanks-actions .btn-secondary { width: 100%; text-align: center; }
+  }
+</style>
