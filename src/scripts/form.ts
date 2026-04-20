@@ -110,6 +110,11 @@ function validateStep(step: number): boolean {
       (form.querySelector('#email') as HTMLInputElement).classList.add('error');
       valid = false;
     }
+    const erreichbarkeit = form.querySelector('input[name="erreichbarkeit"]:checked') as HTMLInputElement;
+    if (!erreichbarkeit) {
+      showError('erreichbarkeit', 'Bitte wählen Sie eine Option.');
+      valid = false;
+    }
     return valid;
   }
 
