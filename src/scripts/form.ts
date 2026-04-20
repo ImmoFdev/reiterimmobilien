@@ -5,6 +5,12 @@ if (!form) throw new Error('Form not found');
 // und merged die Client-IP serverseitig in den Payload.
 const WEBHOOK_URL = '/api/lead-submit';
 
+// Hartcap fuer den Submit-Request. Wenn n8n den Respond-Node erst am Ende
+// seines Workflows (Airtable + Bot) feuert, haengt die Response mehrere
+// Sekunden. Nach Ablauf brechen wir ab und leiten trotzdem weiter - der
+// Lead ist beim Server zu dem Zeitpunkt bereits empfangen.
+const SUBMIT_TIMEOUT_MS = 5000;
+
 // Muss 1:1 zur Checkbox-Beschriftung in LeadForm.astro passen (DSGVO-Audit-Trail).
 const CONSENT_TEXT =
   'Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an datenschutz@reiter-immobilien.net).';
@@ -188,12 +194,17 @@ form.addEventListener('submit', async (e) => {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Wird gesendet...';
 
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS);
+
   try {
     const res = await fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
+      signal: controller.signal,
     });
+    window.clearTimeout(timeoutId);
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}`);
@@ -204,7 +215,15 @@ form.addEventListener('submit', async (e) => {
     }
 
     window.location.href = '/danke';
-  } catch {
+  } catch (err) {
+    window.clearTimeout(timeoutId);
+    if (err instanceof DOMException && err.name === 'AbortError') {
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead');
+      }
+      window.location.href = '/danke';
+      return;
+    }
     submitBtn.disabled = false;
     submitBtn.textContent = 'Erstgespräch anfragen \u2713';
     alert('Es gab einen Fehler. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.');
