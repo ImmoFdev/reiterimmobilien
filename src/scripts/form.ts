@@ -1,3 +1,5 @@
+import { isValidPhoneNumber, parsePhoneNumber } from 'libphonenumber-js/min';
+
 const form = document.getElementById('lead-form') as HTMLFormElement;
 if (!form) throw new Error('Form not found');
 
@@ -75,6 +77,23 @@ form.addEventListener('click', (e) => {
   }
 });
 
+// Freitext-Feld fuer "Sonstige" ein-/ausblenden.
+const sonstigeWrapper = form.querySelector('#sonstige-wrapper') as HTMLElement | null;
+const sonstigeInput = form.querySelector('#immobilienart_sonstige') as HTMLInputElement | null;
+form.querySelectorAll<HTMLInputElement>('input[name="immobilienart"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (!sonstigeWrapper || !sonstigeInput) return;
+    if (radio.checked && radio.value === 'Sonstige') {
+      sonstigeWrapper.hidden = false;
+      sonstigeInput.focus();
+    } else if (radio.checked) {
+      sonstigeWrapper.hidden = true;
+      sonstigeInput.value = '';
+      sonstigeInput.classList.remove('error');
+    }
+  });
+});
+
 // Validation
 function validateStep(step: number): boolean {
   clearErrors();
@@ -85,6 +104,13 @@ function validateStep(step: number): boolean {
     if (!art) {
       showError('immobilienart', 'Bitte wählen Sie eine Immobilienart.');
       valid = false;
+    } else if (art.value === 'Sonstige') {
+      const sonstigeInput = form.querySelector('#immobilienart_sonstige') as HTMLInputElement;
+      if (!sonstigeInput.value.trim()) {
+        showError('immobilienart_sonstige', 'Bitte beschreiben Sie die Immobilie kurz.');
+        sonstigeInput.classList.add('error');
+        valid = false;
+      }
     }
     const plz = (form.querySelector('#plz') as HTMLInputElement).value.trim();
     if (!/^\d{5}$/.test(plz)) {
@@ -114,6 +140,13 @@ function validateStep(step: number): boolean {
     if (email && !email.includes('@')) {
       showError('email', 'Bitte geben Sie eine gültige E-Mail ein.');
       (form.querySelector('#email') as HTMLInputElement).classList.add('error');
+      valid = false;
+    }
+    const telefonInput = form.querySelector('#telefon') as HTMLInputElement;
+    const telefonRaw = telefonInput.value.trim();
+    if (telefonRaw && !isValidPhoneNumber(telefonRaw, 'DE')) {
+      showError('telefon', 'Bitte geben Sie eine gültige Telefonnummer ein.');
+      telefonInput.classList.add('error');
       valid = false;
     }
     const erreichbarkeit = form.querySelector('input[name="erreichbarkeit"]:checked') as HTMLInputElement;
@@ -190,6 +223,28 @@ form.addEventListener('submit', async (e) => {
 
   data.whatsapp_consent = consentCheckbox?.checked === true;
   data.consent_text = CONSENT_TEXT;
+
+  // Bei "Sonstige" den Freitext in das immobilienart-Feld mergen und das
+  // separate Feld aus dem Payload entfernen. So bleibt das Backend-Mapping
+  // simpel (ein String-Feld, Bot kann direkt Bezug nehmen).
+  if (data.immobilienart === 'Sonstige' && typeof data.immobilienart_sonstige === 'string') {
+    const freitext = data.immobilienart_sonstige.trim();
+    if (freitext) {
+      data.immobilienart = `Sonstige: ${freitext}`;
+    }
+  }
+  delete data.immobilienart_sonstige;
+
+  // Telefonnummer auf E.164 normalisieren (z.B. +4917612345678).
+  // Saubere Eingabe fuer Airtable + WhatsApp-Bot, statt "0176 / 1234 5678".
+  try {
+    const parsed = parsePhoneNumber(String(data.telefon ?? ''), 'DE');
+    if (parsed?.isValid()) {
+      data.telefon = parsed.format('E.164');
+    }
+  } catch {
+    // Fallback: original value bleibt, Validierung hat die Nummer eh schon gecheckt
+  }
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Wird gesendet...';

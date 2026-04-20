@@ -63,12 +63,17 @@
               </span>
             </label>
             <label class="tile">
-              <input type="radio" name="immobilienart" value="Grundstück" />
+              <input type="radio" name="immobilienart" value="Sonstige" />
               <span class="tile-content">
-                <span class="tile-icon">&#128208;</span>
-                <span class="tile-label">Grundstück</span>
+                <span class="tile-icon">&#128172;</span>
+                <span class="tile-label">Sonstige</span>
               </span>
             </label>
+          </div>
+          <div class="form-field sonstige-field" id="sonstige-wrapper" style="margin-top: 1rem;" hidden>
+            <label for="immobilienart_sonstige">Um was handelt es sich?</label>
+            <input type="text" id="immobilienart_sonstige" name="immobilienart_sonstige" placeholder="z.B. Grundstück, Gewerbeimmobilie, Doppelhaushälfte" />
+            <span class="form-error" data-error="immobilienart_sonstige"></span>
           </div>
           <div class="form-field" style="margin-top: 1.5rem;">
             <label for="plz">Postleitzahl</label>
