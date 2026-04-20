@@ -210,17 +210,10 @@ form.addEventListener('submit', async (e) => {
       throw new Error(`HTTP ${res.status}`);
     }
 
-    if (typeof window.fbq === 'function') {
-      window.fbq('track', 'Lead');
-    }
-
     window.location.href = '/danke';
   } catch (err) {
     window.clearTimeout(timeoutId);
     if (err instanceof DOMException && err.name === 'AbortError') {
-      if (typeof window.fbq === 'function') {
-        window.fbq('track', 'Lead');
-      }
       window.location.href = '/danke';
       return;
     }
@@ -229,9 +222,3 @@ form.addEventListener('submit', async (e) => {
     alert('Es gab einen Fehler. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.');
   }
 });
-
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
-}

@@ -50,6 +50,20 @@ function loadMetaPixel() {
 
   window.fbq?.('init', PIXEL_ID);
   window.fbq?.('track', 'PageView');
+  trackRouteEvent();
+}
+
+// Route-spezifische Meta-Events. /formular = Funnel-Start (InitiateCheckout),
+// /danke = Conversion (Lead). Wird sowohl beim initialen Pixel-Load als auch
+// beim spaeteren Consent-Accept gefeuert, damit der Event auch dann ankommt,
+// wenn der User den Consent erst auf der Ziel-Seite erteilt.
+function trackRouteEvent() {
+  const path = window.location.pathname;
+  if (path.startsWith('/formular')) {
+    window.fbq?.('track', 'InitiateCheckout');
+  } else if (path.startsWith('/danke')) {
+    window.fbq?.('track', 'Lead');
+  }
 }
 
 function loadGTM() {
