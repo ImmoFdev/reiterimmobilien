@@ -35,7 +35,6 @@
 | E-Mail | Email | Ja |
 | Immobilienart | Single Select | Ja |
 | PLZ | Single Line | Ja |
-| Nachricht | Long Text | Nein |
 | UTM Source | Single Line | Auto |
 | UTM Medium | Single Line | Auto |
 | UTM Campaign | Single Line | Auto |

@@ -43,7 +43,6 @@ Die erste Version dieses Briefes hatte `whatsapp_optin` als boolean. **Das reich
 | `email` | string | E-Mail-Adresse |
 | `immobilienart` | string | z.B. `"Haus"`, `"Eigentumswohnung"`, `"Mehrfamilienhaus"`, `"Grundstück"` |
 | `plz` | string | Postleitzahl der Immobilie |
-| `nachricht` | string | Freitext-Nachricht |
 
 ### Sicherheitsfelder (Pflicht, unverändert)
 
@@ -73,7 +72,7 @@ Der Text der Consent-Checkbox muss **wortwörtlich** so lauten (zusammen mit den
 Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon
 zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich
 jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an
-datenschutz@reiter-immobilien.net).
+info@reiter-immobilien.net).
 ```
 
 ### UI-Anforderungen an die Checkbox
@@ -96,11 +95,10 @@ datenschutz@reiter-immobilien.net).
   "email": "t.mueller@example.de",
   "immobilienart": "Haus",
   "plz": "36037",
-  "nachricht": "Möchte mein Haus in Fulda verkaufen",
   "whatsapp_consent": true,
   "consent_timestamp": "2026-04-17T14:23:51.234Z",
   "consent_ip": "91.45.123.67",
-  "consent_text": "Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an datenschutz@reiter-immobilien.net).",
+  "consent_text": "Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an info@reiter-immobilien.net).",
   "token": "ri-eigent-8f3k2m",
   "website": ""
 }
@@ -166,7 +164,7 @@ Vor Go-Live bitte einen Test-Submit mit folgenden Dummy-Daten machen:
   "whatsapp_consent": true,
   "consent_timestamp": "2026-04-17T12:00:00.000Z",
   "consent_ip": "127.0.0.1",
-  "consent_text": "Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an datenschutz@reiter-immobilien.net).",
+  "consent_text": "Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an info@reiter-immobilien.net).",
   "token": "ri-eigent-8f3k2m",
   "website": ""
 }

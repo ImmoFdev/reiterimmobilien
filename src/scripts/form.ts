@@ -13,7 +13,7 @@ const SUBMIT_TIMEOUT_MS = 5000;
 
 // Muss 1:1 zur Checkbox-Beschriftung in LeadForm.astro passen (DSGVO-Audit-Trail).
 const CONSENT_TEXT =
-  'Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an datenschutz@reiter-immobilien.net).';
+  'Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an info@reiter-immobilien.net).';
 
 // UTM Hidden Fields
 function fillHiddenFields() {

@@ -95,6 +95,10 @@
                 <input type="radio" name="anrede" value="Frau" />
                 <span class="anrede-label">Frau</span>
               </label>
+              <label class="anrede-tile">
+                <input type="radio" name="anrede" value="Divers" />
+                <span class="anrede-label">Divers</span>
+              </label>
             </div>
             <span class="form-error" data-error="anrede"></span>
           </div>
@@ -151,11 +155,7 @@
 
         <!-- Step 3 -->
         <div class="form-step" data-step="3">
-          <h3 class="form-step-title">Fast geschafft! Möchten Sie uns noch etwas mitteilen?</h3>
-          <div class="form-field">
-            <label for="nachricht">Nachricht (optional)</label>
-            <textarea id="nachricht" name="nachricht" rows="3" placeholder="z.B. bevorzugte Uhrzeit für den Rückruf..."></textarea>
-          </div>
+          <h3 class="form-step-title">Fast geschafft! Nur noch die Einwilligungen.</h3>
           <div class="form-field">
             <label class="checkbox-label">
               <input type="checkbox" id="datenschutz" name="datenschutz" required />
@@ -166,7 +166,7 @@
           <div class="form-field">
             <label class="checkbox-label">
               <input type="checkbox" id="whatsapp_consent" name="whatsapp_consent" required />
-              <span>Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an datenschutz@reiter-immobilien.net).</span>
+              <span>Ich willige ein, dass Reiter Immobilien mich per WhatsApp und Telefon zu meiner Immobilienbewertung kontaktiert. Diese Einwilligung kann ich jederzeit formlos widerrufen (z.B. per WhatsApp-Nachricht oder an info@reiter-immobilien.net).</span>
             </label>
             <span class="form-error" data-error="whatsapp_consent"></span>
           </div>
@@ -284,7 +284,7 @@
   .tile-label { font-size: 0.85rem; font-weight: 500; }
   .anrede-row {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
   }
   .anrede-tile {

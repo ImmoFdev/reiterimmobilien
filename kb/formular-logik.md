@@ -19,9 +19,9 @@
 - Buttons: "← Zurück" (Ghost) + "Weiter →" (Primary)
 
 ### Step 3 — Fertig
-- **Nachricht:** Textarea (Optional, Placeholder: "z.B. bevorzugte Uhrzeit für den Rückruf...")
 - **Datenschutz-Checkbox:** Pflicht, Link zur DSE
-- Buttons: "← Zurück" (Ghost) + "Erstgespräch anfragen ✓" (Primary)
+- **WhatsApp-Einwilligung:** Pflicht (DSGVO-Audit-Trail: consent_timestamp, consent_ip, consent_text)
+- Buttons: "← Zurück" (Ghost) + "Erstgespräch anfragen ✓" (Primary, disabled bis WhatsApp-Consent an)
 - Hinweis: "Ihre Daten werden vertraulich behandelt"
 
 ### Danke-Screen (nach Submit)
