@@ -18,12 +18,14 @@ if (!getConsent() && banner) {
 
 if (getConsent() === 'accepted') {
   loadMetaPixel();
+  loadGTM();
 }
 
 acceptBtn?.addEventListener('click', () => {
   setConsent('accepted');
   banner?.classList.remove('visible');
   loadMetaPixel();
+  loadGTM();
 });
 
 declineBtn?.addEventListener('click', () => {
@@ -32,8 +34,7 @@ declineBtn?.addEventListener('click', () => {
 });
 
 function loadMetaPixel() {
-  const PIXEL_ID = 'DEINE_PIXEL_ID';
-  if (PIXEL_ID === 'DEINE_PIXEL_ID') return;
+  const PIXEL_ID = '949913624409939';
 
   (function(f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
     if (f.fbq) return;
@@ -51,9 +52,26 @@ function loadMetaPixel() {
   window.fbq?.('track', 'PageView');
 }
 
+function loadGTM() {
+  const GTM_ID = 'GTM-MCX7KF2P';
+  if ((window as any).google_tag_manager?.[GTM_ID]) return;
+
+  (function(w: any, d: Document, s: string, l: string, i: string) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    const f = d.getElementsByTagName(s)[0];
+    const j = d.createElement(s) as HTMLScriptElement;
+    const dl = l !== 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode?.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', GTM_ID);
+}
+
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
     _fbq?: unknown;
+    dataLayer?: unknown[];
   }
 }

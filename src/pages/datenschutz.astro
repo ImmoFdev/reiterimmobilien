@@ -10,7 +10,7 @@ import Footer from '../components/Footer.astro';
       <div class="legal-container">
         <header class="legal-header">
           <h1>Datenschutzerklärung</h1>
-          <p class="legal-meta">Stand: 17. April 2026</p>
+          <p class="legal-meta">Stand: 20. April 2026</p>
         </header>
 
         <nav class="legal-toc" aria-label="Inhaltsverzeichnis">
@@ -29,6 +29,7 @@ import Footer from '../components/Footer.astro';
             <li><a href="#auftragsverarbeiter">Auftragsverarbeiter bei der Formular-Verarbeitung</a></li>
             <li><a href="#whatsapp">WhatsApp-Kontaktaufnahme durch KI-gestützten Sales-Agenten</a></li>
             <li><a href="#meta-pixel">Meta Pixel (Facebook Pixel)</a></li>
+            <li><a href="#tag-manager">Google Tag Manager</a></li>
             <li><a href="#cookies">Cookies</a></li>
             <li><a href="#utm">UTM-Tracking</a></li>
             <li><a href="#minderjaehrige">Minderjährige</a></li>
@@ -265,8 +266,43 @@ import Footer from '../components/Footer.astro';
           <p>Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die im Browser gespeicherte Cookie-Entscheidung löschen (LocalStorage-Eintrag <code>reiter_cookie_consent</code>) oder über die Cookie-Einstellungen des Browsers. Nach Widerruf wird das Pixel bei zukünftigen Besuchen nicht mehr geladen.</p>
         </section>
 
+        <section id="tag-manager" class="legal-section">
+          <h2>14. Google Tag Manager</h2>
+          <p>Zur zentralen technischen Einbindung und Verwaltung von Marketing- und Analyse-Diensten setzen wir den Google Tag Manager ein. Der Tag Manager ist ein reines Verwaltungswerkzeug und setzt selbst keine Tracking-Cookies. Er wird ausschliesslich geladen, wenn Sie über unser Cookie-Banner zuvor ausdrücklich eingewilligt haben. Ohne Einwilligung oder bei Ablehnung wird der Tag Manager nicht initialisiert.</p>
+
+          <p>Anbieter:</p>
+          <p class="legal-address">
+            Google Ireland Limited<br />
+            Gordon House, Barrow Street<br />
+            Dublin 4, Irland<br />
+            Mutterkonzern: Google LLC (USA)<br />
+            Datenschutzerklärung: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+          </p>
+
+          <h3>Zweck</h3>
+          <ul>
+            <li>Zentrale Verwaltung und Auslieferung der auf der Webseite eingesetzten Marketing- und Analyse-Tags</li>
+            <li>Saubere technische Umsetzung des Einwilligungsmanagements für nachgelagerte Dienste</li>
+          </ul>
+
+          <h3>Verarbeitete Daten</h3>
+          <ul>
+            <li>Beim Laden des Tag-Manager-Skripts wird technisch bedingt Ihre IP-Adresse an Google übermittelt.</li>
+            <li>Der Tag Manager selbst erhebt darüber hinaus keine Daten. Über den Tag Manager eingebundene Dienste verarbeiten Daten auf Basis ihrer jeweils eigenen, in dieser Datenschutzerklärung gesondert aufgeführten Rechtsgrundlage.</li>
+          </ul>
+
+          <h3>Datenübermittlung in die USA</h3>
+          <p>Google überträgt Daten in die USA. Rechtsgrundlage der Übermittlung sind die EU-Standardvertragsklauseln in Verbindung mit dem EU-US Data Privacy Framework, unter dem Google zertifiziert ist.</p>
+
+          <h3>Rechtsgrundlage</h3>
+          <p>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via Cookie-Banner).</p>
+
+          <h3>Widerruf</h3>
+          <p>Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie den im Browser gespeicherten LocalStorage-Eintrag <code>reiter_cookie_consent</code> löschen. Nach Widerruf wird der Tag Manager bei zukünftigen Besuchen nicht mehr geladen.</p>
+        </section>
+
         <section id="cookies" class="legal-section">
-          <h2>14. Cookies</h2>
+          <h2>15. Cookies</h2>
           <p>Unsere Webseite verwendet Cookies und vergleichbare Speichertechniken (insbesondere LocalStorage). Dabei wird zwischen zwei Kategorien unterschieden:</p>
           <ul>
             <li><strong>Unbedingt erforderliche Cookies:</strong> für den technischen Betrieb der Webseite zwingend notwendig. Diese werden auch ohne Einwilligung gesetzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</li>
@@ -303,24 +339,24 @@ import Footer from '../components/Footer.astro';
         </section>
 
         <section id="utm" class="legal-section">
-          <h2>15. UTM-Tracking</h2>
+          <h2>16. UTM-Tracking</h2>
           <p>Wenn Sie unsere Webseite über einen markierten Link aufrufen (z.B. aus einer E-Mail, einer Meta-Anzeige oder über einen QR-Code eines Flyers), können in der URL enthaltene UTM-Parameter ausgelesen werden. Dazu zählen insbesondere <code>utm_source</code>, <code>utm_medium</code> und <code>utm_campaign</code>.</p>
           <p>Diese Parameter dienen der Kampagnen-Attribution. Wir speichern sie zusammen mit einer eingehenden Formular-Anfrage in unserem CRM, um auswerten zu können, über welchen Kanal eine Anfrage zustande gekommen ist. Eine Weitergabe dieser Informationen an externe Dritte erfolgt nicht.</p>
           <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Messung der Wirksamkeit unserer Marketingmassnahmen). Ohne Formularabsendung werden die Parameter nicht dauerhaft gespeichert.</p>
         </section>
 
         <section id="minderjaehrige" class="legal-section">
-          <h2>16. Minderjährige</h2>
+          <h2>17. Minderjährige</h2>
           <p>Unser Angebot richtet sich ausschliesslich an volljährige Personen. Personen unter 16 Jahren sollten ohne Zustimmung der Erziehungsberechtigten keine personenbezogenen Daten über unsere Webseite an uns übermitteln. Wir erheben wissentlich keine Daten von Minderjährigen und führen keine gezielten Marketingmassnahmen gegenüber Minderjährigen durch.</p>
         </section>
 
         <section id="automatisierte-entscheidungen" class="legal-section">
-          <h2>17. Automatisierte Entscheidungsfindung</h2>
+          <h2>18. Automatisierte Entscheidungsfindung</h2>
           <p>Eine automatisierte Entscheidungsfindung einschliesslich Profiling im Sinne von Art. 22 DSGVO findet nicht statt. Der KI-gestützte WhatsApp-Sales-Agent dient ausschliesslich der Vorqualifizierung und Terminvereinbarung. Entscheidungen mit rechtlicher Wirkung oder erheblicher Beeinträchtigung (z.B. Abschluss eines Maklervertrages, Bewertung der Immobilie) werden stets durch einen Menschen bei Reiter Immobilien getroffen.</p>
         </section>
 
         <section id="aenderungen" class="legal-section">
-          <h2>18. Änderung der Datenschutzerklärung</h2>
+          <h2>19. Änderung der Datenschutzerklärung</h2>
           <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie an geänderte Rechtslagen, geänderte Dienste oder geänderte Datenverarbeitungen anzupassen. Es gilt jeweils die zum Zeitpunkt Ihres Besuchs abrufbare Fassung.</p>
         </section>
 
