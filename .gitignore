@@ -18,3 +18,7 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
+
+# Working assets (kein Repo-Bloat durch Druck-PDFs / Source-Fotos)
+docs/flyer/
+docs/content-input/

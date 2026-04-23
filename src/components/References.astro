@@ -3,18 +3,18 @@ const references = [
   {
     image: '/images/referenzen/einfamilienhaus-welkers.jpg',
     title: 'Einfamilienhaus in Welkers',
-    info: 'Innerhalb 2 Wochen verkauft',
+    info: 'Verkauft in 7 Tagen',
     highlight: true,
   },
   {
     image: '/images/referenzen/bungalow-petersberg.jpg',
     title: 'Bungalow in Petersberg',
-    info: 'Verkauft in 4 Wochen',
+    info: 'Verkauft in 10 Tagen',
   },
   {
     image: '/images/referenzen/dhh-petersberg-steinau.jpg',
-    title: 'Doppelhaushälfte in Petersberg',
-    info: 'Verkauft in 9 Wochen',
+    title: 'Doppelhaushälfte in Steinau',
+    info: 'Verkauft in 10 Tagen',
   },
   {
     image: '/images/referenzen/11-parteienhaus-petersberg.jpg',
@@ -24,7 +24,7 @@ const references = [
   {
     image: '/images/referenzen/3-parteienhaus-hosenfeld.jpg',
     title: 'Drei-Parteienhaus in Hosenfeld',
-    info: 'Verkauft nach 4 Monaten',
+    info: 'Verkauft in 3 Wochen',
   },
 ];
 ---
@@ -114,6 +114,9 @@ const references = [
     object-fit: cover;
     display: block;
     transition: transform 0.6s ease;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
   }
 
   .ref-card:hover .ref-image img {

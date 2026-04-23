@@ -1,0 +1,159 @@
+---
+const services = [
+  { title: 'Marktgerechte Bewertung', desc: 'damit Sie den besten Preis erzielen.' },
+  { title: 'Professionelles Marketing', desc: 'online, offline und auf Social Media.' },
+  { title: 'Komplette Verkaufsabwicklung', desc: 'von Besichtigung bis Notartermin.' },
+  { title: 'Persönliche Betreuung', desc: 'weil Immobilienverkauf Vertrauenssache ist.' },
+];
+---
+<section class="about section-padding" style="background: var(--light);">
+  <div class="container">
+    <div class="about-layout">
+
+      <figure class="about-portrait">
+        <img
+          src="/images/verena-portrait.webp"
+          alt="Verena Reiter, Inhaberin von Reiter Immobilien Fulda"
+          class="about-portrait-img"
+          width="800"
+          height="1066"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <article class="about-article">
+        <h2 class="about-headline">
+          Reiter Immobilien &ndash; weil Ihre Immobilie mehr ist als nur <em>vier Wände</em>
+        </h2>
+
+        <p>
+          Jede Immobilie erzählt eine Geschichte. Vielleicht haben Sie hier unzählige Familienfeste gefeiert, Ihre Kinder aufwachsen sehen oder nach langer Suche endlich Ihr perfektes Zuhause gefunden. Und wenn jetzt ein neuer Lebensabschnitt beginnt, stehe ich Ihnen mit <strong>Herz, Verstand und Erfahrung</strong> zur Seite.
+        </p>
+
+        <p>
+          Ich bin <strong>Verena Reiter</strong>, Immobilienexpertin aus <strong>Fulda</strong>. Als <strong>einzige Maklerin in der Region</strong>, die <strong>Homestaging</strong> anbietet, weiß ich: Der erste Eindruck entscheidet. Mit Liebe zum Detail bereite ich Ihre Immobilie so vor, dass sich potenzielle Käufer auf den ersten Blick verlieben &ndash; und Sie den besten Preis erzielen.
+        </p>
+
+        <p>Mein <strong>Rundum-Sorglos-Paket</strong> nimmt Ihnen dabei jede Sorge ab:</p>
+
+        <ul class="about-list">
+          {services.map((s) => (
+            <li><strong>{s.title}</strong> &ndash; {s.desc}</li>
+          ))}
+        </ul>
+
+        <p>
+          <strong>In der Region, für die Region</strong> &ndash; mit einem starken Netzwerk und persönlichem Engagement begleite ich Sie und Ihre Immobilie, als wäre es meine eigene.
+        </p>
+
+        <p class="about-closing">Lassen Sie uns gemeinsam Ihr nächstes Kapitel schreiben!</p>
+
+        <a href="/formular" class="btn-primary about-cta">Verkauf besprechen &rarr;</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .about-layout {
+      grid-template-columns: 5fr 7fr;
+      gap: 4rem;
+    }
+  }
+
+  .about-portrait {
+    margin: 0;
+    max-width: 420px;
+    width: 100%;
+    justify-self: center;
+  }
+
+  @media (min-width: 900px) {
+    .about-portrait {
+      justify-self: start;
+      max-width: none;
+    }
+  }
+
+  .about-portrait-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .about-article {
+    color: var(--dark);
+  }
+
+  .about-headline {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 1.25rem;
+    color: var(--dark);
+  }
+
+  .about-headline em {
+    font-family: 'Dancing Script', cursive;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+  }
+
+  .about-article p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+
+  .about-list {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .about-list li {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+  }
+
+  .about-list li strong {
+    font-weight: 500;
+  }
+
+  .about-closing {
+    font-weight: 400 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .about-cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 767px) {
+    .about-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

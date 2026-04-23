@@ -2,12 +2,19 @@
 // src/components/Hero.astro
 ---
 <section class="hero">
-  <div class="hero-video">
-    <div class="hero-video-wrapper">
-      <div class="hero-video-placeholder">
-        <img src="/images/play-button.svg" alt="" width="60" height="60" />
-        <span>Begrüßungsvideo</span>
-      </div>
+  <div class="hero-media">
+    <img
+      src="/images/referenzen/einfamilienhaus-welkers.jpg"
+      alt="Einfamilienhaus in Welkers - durch Reiter Immobilien in 7 Tagen verkauft"
+      class="hero-media-img"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <span class="hero-media-badge">Verkauft in 7 Tagen</span>
+    <div class="hero-media-caption">
+      <span class="hero-media-caption-label">Aktuelle Referenz</span>
+      <span class="hero-media-caption-title">Einfamilienhaus in Welkers</span>
     </div>
   </div>
   <div class="hero-content">
@@ -52,45 +59,83 @@
     }
   }
 
-  .hero-video {
+  .hero-media {
+    position: relative;
     background: var(--accent-pri);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem 1rem;
+    aspect-ratio: 3/2;
+    overflow: hidden;
   }
 
   @media (min-width: 768px) {
-    .hero-video {
-      padding: 3rem;
+    .hero-media {
+      aspect-ratio: auto;
+      min-height: 80vh;
     }
   }
 
-  .hero-video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    aspect-ratio: 4/3;
-  }
-
-  .hero-video-placeholder {
+  .hero-media-img {
     width: 100%;
     height: 100%;
-    background: var(--accent-pri);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
+    object-fit: cover;
+    display: block;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
-  .hero-video-placeholder span {
-    font-size: 0.75rem;
+  .hero-media-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--dark);
+    color: var(--light);
+    font-size: 0.7rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--dark);
-    opacity: 0.6;
+    padding: 0.45rem 0.9rem;
+    border-radius: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-media-badge {
+      top: 1.5rem;
+      left: 1.5rem;
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .hero-media-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    color: var(--light);
+    background: linear-gradient(to top, rgba(42,39,36,0.72) 0%, rgba(42,39,36,0) 100%);
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    .hero-media-caption {
+      padding: 3rem 1.5rem 1.5rem;
+    }
+  }
+
+  .hero-media-caption-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.85;
+  }
+
+  .hero-media-caption-title {
+    font-size: 0.95rem;
+    font-weight: 500;
   }
 
   .hero-content {

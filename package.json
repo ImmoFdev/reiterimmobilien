@@ -12,5 +12,8 @@
   "dependencies": {
     "astro": "^5.7.10",
     "libphonenumber-js": "^1.12.41"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
   }
 }
